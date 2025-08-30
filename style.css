@@ -1,0 +1,205 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Ubuntu", sans-serif;
+}
+.sidebar {
+  background-image: url(./assets/images/bg-sidebar-desktop.svg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  color: white;
+  padding: 2rem;
+  min-height: 500px;
+}
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+.step-circle.active {
+  background-color: #6f42c1;
+  border-color: #6f42c1;
+}
+.form-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.form-title {
+  color: #02295a;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.form-description {
+  color: #9699ab;
+  margin-bottom: 2rem;
+}
+.form-label {
+  color: #02295a;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d6d9e6;
+}
+.form-control:focus {
+  border-color: #6f42c1;
+  box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25);
+}
+.error-message {
+  color: #ed3548;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+.plan-card {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  height: 100%;
+}
+.plan-card:hover,
+.plan-card.selected {
+  border-color: #6f42c1;
+  background-color: #f8f9fe;
+}
+.plan-name {
+  color: #02295a;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.plan-price {
+  color: #9699ab;
+  margin-bottom: 0.5rem;
+}
+.plan-free {
+  color: #02295a;
+  font-size: 0.875rem;
+}
+.toggle-switch {
+  background-color: #f8f9fe;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.toggle-label {
+  color: #9699ab;
+  font-weight: 500;
+}
+.toggle-label.active {
+  color: #02295a;
+}
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+.btn-back {
+  color: #9699ab;
+  font-weight: 500;
+}
+.btn-back:hover {
+  color: #02295a;
+}
+.step-content {
+  display: none;
+}
+.step-content.active {
+  display: block;
+}
+.addon-card {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.addon-card:hover,
+.addon-card.selected {
+  border-color: #6f42c1;
+  background-color: #f8f9fe;
+}
+.addon-check {
+  margin-right: 1rem;
+}
+.addon-price {
+  color: #6f42c1;
+  font-weight: 500;
+}
+.summary-card {
+  background-color: #f8f9fe;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.summary-plan {
+  font-weight: bold;
+  color: #02295a;
+}
+.summary-change {
+  color: #9699ab;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.summary-addon {
+  color: #9699ab;
+  margin-bottom: 0.75rem;
+}
+.summary-total {
+  padding: 1.5rem;
+  color: #9699ab;
+}
+.total-amount {
+  color: #6f42c1;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.thank-you {
+  text-align: center;
+  padding: 3rem 0;
+}
+.thank-you-icon {
+  font-size: 4rem;
+  color: #6f42c1;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 991.98px) {
+  .sidebar {
+    background-image: url("https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&crop=entropy&cs=tinysrgb&fit=crop&h=200&w=1000");
+    border-radius: 0;
+    padding: 1rem;
+    min-height: auto;
+  }
+  .steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .step-info {
+    display: none;
+  }
+  .form-container {
+    min-height: auto;
+    border-radius: 10px 10px 0 0;
+    margin-top: -20px;
+    z-index: 2;
+    position: relative;
+  }
+}

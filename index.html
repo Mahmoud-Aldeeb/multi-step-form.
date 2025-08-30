@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Form</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container py-4">
+      <div class="row g-4">
+        <!-- Sidebar with steps -->
+        <div class="col-lg-4">
+          <div class="sidebar h-100">
+            <div class="steps-container">
+              <div
+                class="d-flex align-items-center mb-4 step-item"
+                data-step="1"
+              >
+                <div class="step-circle">1</div>
+                <div class="step-info">
+                  <div class="text-uppercase text-muted small">Step 1</div>
+                  <div class="fw-bold">Your info</div>
+                </div>
+              </div>
+              <div
+                class="d-flex align-items-center mb-4 step-item"
+                data-step="2"
+              >
+                <div class="step-circle">2</div>
+                <div class="step-info">
+                  <div class="text-uppercase text-muted small">Step 2</div>
+                  <div class="fw-bold">Select plan</div>
+                </div>
+              </div>
+              <div
+                class="d-flex align-items-center mb-4 step-item"
+                data-step="3"
+              >
+                <div class="step-circle">3</div>
+                <div class="step-info">
+                  <div class="text-uppercase text-muted small">Step 3</div>
+                  <div class="fw-bold">Add-ons</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center step-item" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-info">
+                  <div class="text-uppercase text-muted small">Step 4</div>
+                  <div class="fw-bold">Summary</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form content -->
+        <div class="col-lg-8">
+          <div class="form-container h-100">
+            <!-- Step 1: Personal Info -->
+            <div class="step-content active" data-step="1">
+              <h1 class="form-title">Personal info</h1>
+              <p class="form-description">
+                Please provide your name, email address, and phone number.
+              </p>
+
+              <form id="personalInfoForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="e.g. Vanessa Mint"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="e.g. vanessamint@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    placeholder="e.g. +1 234 567 890"
+                    required
+                  />
+                  <div class="error-message d-none">This field is required</div>
+                </div>
+
+                <div class="form-actions">
+                  <div></div>
+                  <!-- Empty div for spacing -->
+                  <button
+                    type="button"
+                    class="btn btn-primary next-step"
+                    data-next="2"
+                  >
+                    Next Step
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Step 2: Select Plan -->
+            <div class="step-content" data-step="2">
+              <h1 class="form-title">Select your plan</h1>
+              <p class="form-description">
+                You have the option of monthly or yearly billing.
+              </p>
+
+              <div class="row plan-options g-3 mb-4">
+                <div class="col-md-4">
+                  <div class="plan-card" data-plan="arcade">
+                    <img
+                      src="./assets/images/icon-arcade.svg"
+                      alt="Arcade"
+                      class="mb-3"
+                    />
+
+                    <div class="plan-name">Arcade</div>
+                    <div
+                      class="plan-price"
+                      data-monthly="$9/mo"
+                      data-yearly="$90/yr"
+                    >
+                      $9/mo
+                    </div>
+                    <div class="plan-free d-none">2 months free</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="plan-card selected" data-plan="advanced">
+                    <img
+                      src="./assets/images/icon-advanced.svg"
+                      alt="Advanced"
+                      class="mb-3"
+                    />
+                    <div class="plan-name">Advanced</div>
+                    <div
+                      class="plan-price"
+                      data-monthly="$12/mo"
+                      data-yearly="$120/yr"
+                    >
+                      $12/mo
+                    </div>
+                    <div class="plan-free d-none">2 months free</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="plan-card" data-plan="pro">
+                    <img
+                      src="./assets/images/icon-pro.svg"
+                      alt="Pro"
+                      class="mb-3"
+                    />
+                    <div class="plan-name">Pro</div>
+                    <div
+                      class="plan-price"
+                      data-monthly="$15/mo"
+                      data-yearly="$150/yr"
+                    >
+                      $15/mo
+                    </div>
+                    <div class="plan-free d-none">2 months free</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="toggle-switch mb-4">
+                <span class="toggle-label active">Monthly</span>
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="billingToggle"
+                  />
+                </div>
+                <span class="toggle-label">Yearly</span>
+              </div>
+
+              <div class="form-actions">
+                <button
+                  type="button"
+                  class="btn btn-link btn-back prev-step"
+                  data-prev="1"
+                >
+                  Go Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary next-step"
+                  data-next="3"
+                >
+                  Next Step
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Add-ons -->
+            <div class="step-content" data-step="3">
+              <h1 class="form-title">Pick add-ons</h1>
+              <p class="form-description">
+                Add-ons help enhance your gaming experience.
+              </p>
+
+              <div class="addon-card selected" data-addon="online">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center">
+                    <div class="addon-check">
+                      <input type="checkbox" class="form-check-input" checked />
+                    </div>
+                    <div>
+                      <div class="fw-bold">Online service</div>
+                      <div class="text-muted small">
+                        Access to multiplayer games
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="addon-price"
+                    data-monthly="+$1/mo"
+                    data-yearly="+$10/yr"
+                  >
+                    +$1/mo
+                  </div>
+                </div>
+              </div>
+
+              <div class="addon-card selected" data-addon="storage">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center">
+                    <div class="addon-check">
+                      <input type="checkbox" class="form-check-input" checked />
+                    </div>
+                    <div>
+                      <div class="fw-bold">Larger storage</div>
+                      <div class="text-muted small">
+                        Extra 1TB of cloud save
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="addon-price"
+                    data-monthly="+$2/mo"
+                    data-yearly="+$20/yr"
+                  >
+                    +$2/mo
+                  </div>
+                </div>
+              </div>
+
+              <div class="addon-card" data-addon="profile">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center">
+                    <div class="addon-check">
+                      <input type="checkbox" class="form-check-input" />
+                    </div>
+                    <div>
+                      <div class="fw-bold">Customizable Profile</div>
+                      <div class="text-muted small">
+                        Custom theme on your profile
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="addon-price"
+                    data-monthly="+$2/mo"
+                    data-yearly="+$20/yr"
+                  >
+                    +$2/mo
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button
+                  type="button"
+                  class="btn btn-link btn-back prev-step"
+                  data-prev="2"
+                >
+                  Go Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary next-step"
+                  data-next="4"
+                >
+                  Next Step
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 4: Summary -->
+            <div class="step-content" data-step="4">
+              <h1 class="form-title">Finishing up</h1>
+              <p class="form-description">
+                Double-check everything looks OK before confirming.
+              </p>
+
+              <div class="summary-card">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div>
+                    <div class="summary-plan">Arcade (Monthly)</div>
+                    <div class="summary-change" id="changePlan">Change</div>
+                  </div>
+                  <div class="fw-bold">$9/mo</div>
+                </div>
+                <hr />
+                <div class="summary-addon d-flex justify-content-between">
+                  <div>Online service</div>
+                  <div>+$1/mo</div>
+                </div>
+                <div class="summary-addon d-flex justify-content-between">
+                  <div>Larger storage</div>
+                  <div>+$2/mo</div>
+                </div>
+              </div>
+
+              <div
+                class="summary-total d-flex justify-content-between align-items-center"
+              >
+                <div>Total (per month)</div>
+                <div class="total-amount">+$12/mo</div>
+              </div>
+
+              <div class="form-actions">
+                <button
+                  type="button"
+                  class="btn btn-link btn-back prev-step"
+                  data-prev="3"
+                >
+                  Go Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary next-step"
+                  data-next="5"
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 5: Thank You -->
+            <div class="step-content" data-step="5">
+              <div class="thank-you">
+                <div class="thank-you-icon">
+                  <img
+                    src="./assets/images/icon-thank-you.svg"
+                    alt="Thank You"
+                  />
+                </div>
+                <h1 class="form-title">Thank you!</h1>
+                <p class="form-description">
+                  Thanks for confirming your subscription! We hope you have fun
+                  using our platform. If you ever need support, please feel free
+                  to email us at support@loremgaming.com.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
